@@ -1,0 +1,457 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		154F0560185870CB0022BB17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154F055F185870CB0022BB17 /* Foundation.framework */; };
+		154F0562185870CB0022BB17 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154F0561185870CB0022BB17 /* CoreGraphics.framework */; };
+		154F0564185870CB0022BB17 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154F0563185870CB0022BB17 /* UIKit.framework */; };
+		154F056A185870CB0022BB17 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 154F0568185870CB0022BB17 /* InfoPlist.strings */; };
+		154F056C185870CB0022BB17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 154F056B185870CB0022BB17 /* main.m */; };
+		154F0570185870CB0022BB17 /* PMTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 154F056F185870CB0022BB17 /* PMTAppDelegate.m */; };
+		154F0572185870CB0022BB17 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 154F0571185870CB0022BB17 /* Images.xcassets */; };
+		154F0579185870CB0022BB17 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154F0578185870CB0022BB17 /* XCTest.framework */; };
+		154F057A185870CB0022BB17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154F055F185870CB0022BB17 /* Foundation.framework */; };
+		154F057B185870CB0022BB17 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154F0563185870CB0022BB17 /* UIKit.framework */; };
+		154F0583185870CB0022BB17 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 154F0581185870CB0022BB17 /* InfoPlist.strings */; };
+		154F0585185870CB0022BB17 /* Pebble_MusicTweeterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 154F0584185870CB0022BB17 /* Pebble_MusicTweeterTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		154F057C185870CB0022BB17 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 154F0554185870CB0022BB17 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 154F055B185870CB0022BB17;
+			remoteInfo = "Pebble MusicTweeter";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		154F055C185870CB0022BB17 /* Pebble MusicTweeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pebble MusicTweeter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		154F055F185870CB0022BB17 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		154F0561185870CB0022BB17 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		154F0563185870CB0022BB17 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		154F0567185870CB0022BB17 /* Pebble MusicTweeter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pebble MusicTweeter-Info.plist"; sourceTree = "<group>"; };
+		154F0569185870CB0022BB17 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		154F056B185870CB0022BB17 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		154F056D185870CB0022BB17 /* Pebble MusicTweeter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pebble MusicTweeter-Prefix.pch"; sourceTree = "<group>"; };
+		154F056E185870CB0022BB17 /* PMTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PMTAppDelegate.h; sourceTree = "<group>"; };
+		154F056F185870CB0022BB17 /* PMTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PMTAppDelegate.m; sourceTree = "<group>"; };
+		154F0571185870CB0022BB17 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		154F0577185870CB0022BB17 /* Pebble MusicTweeterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pebble MusicTweeterTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		154F0578185870CB0022BB17 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		154F0580185870CB0022BB17 /* Pebble MusicTweeterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pebble MusicTweeterTests-Info.plist"; sourceTree = "<group>"; };
+		154F0582185870CB0022BB17 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		154F0584185870CB0022BB17 /* Pebble_MusicTweeterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pebble_MusicTweeterTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		154F0559185870CB0022BB17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				154F0562185870CB0022BB17 /* CoreGraphics.framework in Frameworks */,
+				154F0564185870CB0022BB17 /* UIKit.framework in Frameworks */,
+				154F0560185870CB0022BB17 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		154F0574185870CB0022BB17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				154F0579185870CB0022BB17 /* XCTest.framework in Frameworks */,
+				154F057B185870CB0022BB17 /* UIKit.framework in Frameworks */,
+				154F057A185870CB0022BB17 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		154F0553185870CB0022BB17 = {
+			isa = PBXGroup;
+			children = (
+				154F0565185870CB0022BB17 /* Pebble MusicTweeter */,
+				154F057E185870CB0022BB17 /* Pebble MusicTweeterTests */,
+				154F055E185870CB0022BB17 /* Frameworks */,
+				154F055D185870CB0022BB17 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		154F055D185870CB0022BB17 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				154F055C185870CB0022BB17 /* Pebble MusicTweeter.app */,
+				154F0577185870CB0022BB17 /* Pebble MusicTweeterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		154F055E185870CB0022BB17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				154F055F185870CB0022BB17 /* Foundation.framework */,
+				154F0561185870CB0022BB17 /* CoreGraphics.framework */,
+				154F0563185870CB0022BB17 /* UIKit.framework */,
+				154F0578185870CB0022BB17 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		154F0565185870CB0022BB17 /* Pebble MusicTweeter */ = {
+			isa = PBXGroup;
+			children = (
+				154F056E185870CB0022BB17 /* PMTAppDelegate.h */,
+				154F056F185870CB0022BB17 /* PMTAppDelegate.m */,
+				154F0571185870CB0022BB17 /* Images.xcassets */,
+				154F0566185870CB0022BB17 /* Supporting Files */,
+			);
+			path = "Pebble MusicTweeter";
+			sourceTree = "<group>";
+		};
+		154F0566185870CB0022BB17 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				154F0567185870CB0022BB17 /* Pebble MusicTweeter-Info.plist */,
+				154F0568185870CB0022BB17 /* InfoPlist.strings */,
+				154F056B185870CB0022BB17 /* main.m */,
+				154F056D185870CB0022BB17 /* Pebble MusicTweeter-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		154F057E185870CB0022BB17 /* Pebble MusicTweeterTests */ = {
+			isa = PBXGroup;
+			children = (
+				154F0584185870CB0022BB17 /* Pebble_MusicTweeterTests.m */,
+				154F057F185870CB0022BB17 /* Supporting Files */,
+			);
+			path = "Pebble MusicTweeterTests";
+			sourceTree = "<group>";
+		};
+		154F057F185870CB0022BB17 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				154F0580185870CB0022BB17 /* Pebble MusicTweeterTests-Info.plist */,
+				154F0581185870CB0022BB17 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		154F055B185870CB0022BB17 /* Pebble MusicTweeter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 154F0588185870CB0022BB17 /* Build configuration list for PBXNativeTarget "Pebble MusicTweeter" */;
+			buildPhases = (
+				154F0558185870CB0022BB17 /* Sources */,
+				154F0559185870CB0022BB17 /* Frameworks */,
+				154F055A185870CB0022BB17 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pebble MusicTweeter";
+			productName = "Pebble MusicTweeter";
+			productReference = 154F055C185870CB0022BB17 /* Pebble MusicTweeter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		154F0576185870CB0022BB17 /* Pebble MusicTweeterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 154F058B185870CB0022BB17 /* Build configuration list for PBXNativeTarget "Pebble MusicTweeterTests" */;
+			buildPhases = (
+				154F0573185870CB0022BB17 /* Sources */,
+				154F0574185870CB0022BB17 /* Frameworks */,
+				154F0575185870CB0022BB17 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				154F057D185870CB0022BB17 /* PBXTargetDependency */,
+			);
+			name = "Pebble MusicTweeterTests";
+			productName = "Pebble MusicTweeterTests";
+			productReference = 154F0577185870CB0022BB17 /* Pebble MusicTweeterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		154F0554185870CB0022BB17 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PMT;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Arnav Kumar";
+				TargetAttributes = {
+					154F0576185870CB0022BB17 = {
+						TestTargetID = 154F055B185870CB0022BB17;
+					};
+				};
+			};
+			buildConfigurationList = 154F0557185870CB0022BB17 /* Build configuration list for PBXProject "Pebble MusicTweeter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 154F0553185870CB0022BB17;
+			productRefGroup = 154F055D185870CB0022BB17 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				154F055B185870CB0022BB17 /* Pebble MusicTweeter */,
+				154F0576185870CB0022BB17 /* Pebble MusicTweeterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		154F055A185870CB0022BB17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				154F056A185870CB0022BB17 /* InfoPlist.strings in Resources */,
+				154F0572185870CB0022BB17 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		154F0575185870CB0022BB17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				154F0583185870CB0022BB17 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		154F0558185870CB0022BB17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				154F0570185870CB0022BB17 /* PMTAppDelegate.m in Sources */,
+				154F056C185870CB0022BB17 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		154F0573185870CB0022BB17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				154F0585185870CB0022BB17 /* Pebble_MusicTweeterTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		154F057D185870CB0022BB17 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 154F055B185870CB0022BB17 /* Pebble MusicTweeter */;
+			targetProxy = 154F057C185870CB0022BB17 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		154F0568185870CB0022BB17 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				154F0569185870CB0022BB17 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		154F0581185870CB0022BB17 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				154F0582185870CB0022BB17 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		154F0586185870CB0022BB17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		154F0587185870CB0022BB17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		154F0589185870CB0022BB17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pebble MusicTweeter/Pebble MusicTweeter-Prefix.pch";
+				INFOPLIST_FILE = "Pebble MusicTweeter/Pebble MusicTweeter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		154F058A185870CB0022BB17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pebble MusicTweeter/Pebble MusicTweeter-Prefix.pch";
+				INFOPLIST_FILE = "Pebble MusicTweeter/Pebble MusicTweeter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		154F058C185870CB0022BB17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Pebble MusicTweeter.app/Pebble MusicTweeter";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pebble MusicTweeter/Pebble MusicTweeter-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Pebble MusicTweeterTests/Pebble MusicTweeterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		154F058D185870CB0022BB17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Pebble MusicTweeter.app/Pebble MusicTweeter";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pebble MusicTweeter/Pebble MusicTweeter-Prefix.pch";
+				INFOPLIST_FILE = "Pebble MusicTweeterTests/Pebble MusicTweeterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		154F0557185870CB0022BB17 /* Build configuration list for PBXProject "Pebble MusicTweeter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				154F0586185870CB0022BB17 /* Debug */,
+				154F0587185870CB0022BB17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		154F0588185870CB0022BB17 /* Build configuration list for PBXNativeTarget "Pebble MusicTweeter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				154F0589185870CB0022BB17 /* Debug */,
+				154F058A185870CB0022BB17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		154F058B185870CB0022BB17 /* Build configuration list for PBXNativeTarget "Pebble MusicTweeterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				154F058C185870CB0022BB17 /* Debug */,
+				154F058D185870CB0022BB17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 154F0554185870CB0022BB17 /* Project object */;
+}
