@@ -35,6 +35,10 @@
 		159997831864C737004A5352 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159997821864C737004A5352 /* MessageUI.framework */; };
 		159997861864CA6C004A5352 /* PebbleConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 159997851864CA6C004A5352 /* PebbleConnectionManager.m */; };
 		15FB1F671871CF26001A90D2 /* ConnectionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FB1F661871CF26001A90D2 /* ConnectionsManager.m */; };
+		15FB1F6D1871F855001A90D2 /* RFKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FB1F6A1871F855001A90D2 /* RFKeyboardToolbar.m */; };
+		15FB1F6E1871F855001A90D2 /* RFToolbarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FB1F6C1871F855001A90D2 /* RFToolbarButton.m */; };
+		15FB1F7518721476001A90D2 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FB1F7418721476001A90D2 /* background.png */; };
+		15FB1F78187280FC001A90D2 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FB1F77187280FC001A90D2 /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +89,12 @@
 		159997851864CA6C004A5352 /* PebbleConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PebbleConnectionManager.m; sourceTree = "<group>"; };
 		15FB1F651871CF26001A90D2 /* ConnectionsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionsManager.h; sourceTree = "<group>"; };
 		15FB1F661871CF26001A90D2 /* ConnectionsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionsManager.m; sourceTree = "<group>"; };
+		15FB1F691871F855001A90D2 /* RFKeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFKeyboardToolbar.h; sourceTree = "<group>"; };
+		15FB1F6A1871F855001A90D2 /* RFKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFKeyboardToolbar.m; sourceTree = "<group>"; };
+		15FB1F6B1871F855001A90D2 /* RFToolbarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFToolbarButton.h; sourceTree = "<group>"; };
+		15FB1F6C1871F855001A90D2 /* RFToolbarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFToolbarButton.m; sourceTree = "<group>"; };
+		15FB1F7418721476001A90D2 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		15FB1F77187280FC001A90D2 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Images/icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +176,7 @@
 		154F0565185870CB0022BB17 /* Pebble MusicTweeter */ = {
 			isa = PBXGroup;
 			children = (
+				15FB1F7618728063001A90D2 /* Images */,
 				154F056E185870CB0022BB17 /* PMTAppDelegate.h */,
 				154F056F185870CB0022BB17 /* PMTAppDelegate.m */,
 				154F058E185870F30022BB17 /* iPhone.storyboard */,
@@ -173,6 +184,7 @@
 				154F05DB1858DDD00022BB17 /* LastFMFetcher.m */,
 				154F0594185872D30022BB17 /* PMTMainViewController.h */,
 				154F0595185872D30022BB17 /* PMTMainViewController.m */,
+				15FB1F681871F855001A90D2 /* RFKeyboardToolbar */,
 				154F0571185870CB0022BB17 /* Images.xcassets */,
 				154F0566185870CB0022BB17 /* Supporting Files */,
 				159997841864CA6C004A5352 /* PebbleConnectionManager.h */,
@@ -211,6 +223,26 @@
 				154F0581185870CB0022BB17 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		15FB1F681871F855001A90D2 /* RFKeyboardToolbar */ = {
+			isa = PBXGroup;
+			children = (
+				15FB1F691871F855001A90D2 /* RFKeyboardToolbar.h */,
+				15FB1F6A1871F855001A90D2 /* RFKeyboardToolbar.m */,
+				15FB1F6B1871F855001A90D2 /* RFToolbarButton.h */,
+				15FB1F6C1871F855001A90D2 /* RFToolbarButton.m */,
+			);
+			path = RFKeyboardToolbar;
+			sourceTree = "<group>";
+		};
+		15FB1F7618728063001A90D2 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				15FB1F77187280FC001A90D2 /* icon.png */,
+				15FB1F7418721476001A90D2 /* background.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +322,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				154F056A185870CB0022BB17 /* InfoPlist.strings in Resources */,
+				15FB1F78187280FC001A90D2 /* icon.png in Resources */,
+				15FB1F7518721476001A90D2 /* background.png in Resources */,
 				154F058F185870F30022BB17 /* iPhone.storyboard in Resources */,
 				154F0572185870CB0022BB17 /* Images.xcassets in Resources */,
 			);
@@ -311,7 +345,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				159997861864CA6C004A5352 /* PebbleConnectionManager.m in Sources */,
+				15FB1F6D1871F855001A90D2 /* RFKeyboardToolbar.m in Sources */,
 				154F0570185870CB0022BB17 /* PMTAppDelegate.m in Sources */,
+				15FB1F6E1871F855001A90D2 /* RFToolbarButton.m in Sources */,
 				15FB1F671871CF26001A90D2 /* ConnectionsManager.m in Sources */,
 				154F0596185872D30022BB17 /* PMTMainViewController.m in Sources */,
 				154F05DC1858DDD00022BB17 /* LastFMFetcher.m in Sources */,

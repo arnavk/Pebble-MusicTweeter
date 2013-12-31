@@ -9,8 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "PebbleConnectionManager.h"
 
-@interface ConnectionsManager : NSObject <PebbleResponderDelegate>
+@interface ConnectionsManager : NSObject <PebbleResponderDelegate, UITextViewDelegate>
 
 + (ConnectionsManager *) sharedManager;
++ (void) setup;
+
+- (NSString *) tweetTemplate;
 
 @end

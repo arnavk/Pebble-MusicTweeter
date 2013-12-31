@@ -16,6 +16,7 @@
 @interface ConnectionsManager ()
 
 @property (nonatomic) ACAccountStore *accountStore;
+@property (nonatomic, strong) NSString *tweetTemplate;
 
 @end
 
@@ -27,25 +28,51 @@
         if (sharedManager == nil)
         {
             sharedManager = [[self alloc] init];
-            [[PebbleConnectionManager sharedManager] registerDelegate:sharedManager];
+            sharedManager.tweetTemplate = [sharedManager tweetTemplate];
         }
     }
     return sharedManager;
 }
 
++ (void) setup {
+    [[PebbleConnectionManager sharedManager] registerDelegate:[self sharedManager]];
+}
+
+- (NSString *) tweetTemplate
+{
+    NSString * template = [[NSUserDefaults standardUserDefaults] stringForKey:NSUDTemplateTweetKey];
+    if (!template)
+        template = @"#NowPlaying <track> by <artist>. #pebbleTweets <link>";
+    return template;
+}
+
+#pragma mark PebbleResponderDelegate methods
+
 - (void) respondToMessage:(NSDictionary *)message
 {
-    NSLog(@"Tweeted");
-    NSNumber *first = [[NSNumber alloc] initWithInt:1];
+    NSNumber *first = [NSNumber numberWithInt:1];
     NSDictionary * dict;
     if ([[message objectForKey:first] isEqualToNumber:[NSNumber numberWithInt:0]])
     {
-        dict = @{ first     : @"Tweet?" };
+        MPMediaItem *currentTrack = [self getCurrentTrack];
+        if (currentTrack)
+        {
+            dict = @{ PebbleMessageStatusKey       : [NSNumber numberWithInt:1],
+                      PebbleMessageTrackInformationKey : [NSString stringWithFormat:@"\"%@\" by %@", [currentTrack valueForProperty:MPMediaItemPropertyTitle], [currentTrack valueForProperty:MPMediaItemPropertyTitle]]
+                     };
+        }
+        else
+        {
+            dict = @{ PebbleMessageStatusKey       : [NSNumber numberWithInt:0],
+                      PebbleMessageStringKey    : @"Nothing playing"
+                    };
+        }
         [[PebbleConnectionManager sharedManager] sendMessage:dict];
     }
     else if ([[message objectForKey:first] isEqualToNumber:[NSNumber numberWithInt:42]])
     {
-        dict = @{ first     : @"Tweeted" };
+        dict = @{ PebbleMessageTweetedKey     : @"Tweeted" };
+        [self tweetCurrentTrack];
         [[PebbleConnectionManager sharedManager] sendMessage:dict];
     }
     NSLog(@"%@", dict);
@@ -55,6 +82,18 @@
 {
     //TODO
 }
+
+#pragma mark UITextViewDelegate methods
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    NSLog(@"Edited");
+    self.tweetTemplate = textView.text;
+    [[NSUserDefaults standardUserDefaults] setObject:textView.text forKey:NSUDTemplateTweetKey];
+    NSLog(@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:NSUDTemplateTweetKey]);
+}
+
+#pragma mark Other class methods
 
 - (ACAccountStore *) accountStore {
     if (!_accountStore) _accountStore = [[ACAccountStore alloc] init];
@@ -67,14 +106,30 @@
             isAvailableForServiceType:SLServiceTypeTwitter];
 }
 
-- (NSString *) getTweetText
-{
+- (MPMediaItem *)getCurrentTrack {
     MPMusicPlayerController *musicPlayer = [[MPMusicPlayerController alloc] init];
     MPMediaItem *currentItem = musicPlayer.nowPlayingItem;
+    return currentItem;
+}
+
+- (NSString *)stripDoubleSpaceFrom:(NSString *)string {
+    while ([string rangeOfString:@"  "].location != NSNotFound) {
+        string = [string stringByReplacingOccurrencesOfString:@"  " withString:@" "];
+    }
+    return string;
+}
+
+- (NSString *) getTweetText
+{
+    MPMediaItem *currentItem = [self getCurrentTrack];
     NSString *title  = [currentItem valueForProperty:MPMediaItemPropertyTitle];
     NSString *artist = [currentItem valueForProperty:MPMediaItemPropertyArtist];
     NSURL *url = [LastFMFetcher urlForTrack:title byArtist:artist];
-    NSString *tweet = [NSString stringWithFormat:@"#NowPlaying \"%@\" by %@. #pebbleTweets %@", title, artist, [url absoluteString]];
+    NSString *tweet = self.tweetTemplate;//[NSString stringWithFormat:@"#NowPlaying \"%@\" by %@. #pebbleTweets %@", title, artist, [url absoluteString]];
+    tweet = [tweet stringByReplacingOccurrencesOfString:@"<artist>" withString:artist];
+    tweet = [tweet stringByReplacingOccurrencesOfString:@"<link>" withString:[url absoluteString]];
+    tweet = [tweet stringByReplacingOccurrencesOfString:@"<title>" withString:[NSString stringWithFormat:@"\"%@\"", title]];
+    tweet = [self stripDoubleSpaceFrom:tweet];
     return tweet;
 }
 

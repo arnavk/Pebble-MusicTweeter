@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PebbleConnectionManager.h"
+#import "ConnectionsManager.h"
 
-@interface PMTMainViewController : UIViewController <PebbleResponderDelegate>
+@interface PMTMainViewController : UIViewController <UITextFieldDelegate>
 
 @end
