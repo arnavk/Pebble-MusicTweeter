@@ -48,30 +48,36 @@
 
 #pragma mark PebbleResponderDelegate methods
 
+//[NSString stringWithFormat:@"\"%@\" by %@", [currentTrack valueForProperty:MPMediaItemPropertyTitle], [currentTrack valueForProperty:MPMediaItemPropertyAlbumArtist]]
 - (void) respondToMessage:(NSDictionary *)message
 {
     NSNumber *first = [NSNumber numberWithInt:1];
     NSDictionary * dict;
-    if ([[message objectForKey:first] isEqualToNumber:[NSNumber numberWithInt:0]])
+    if ([[message objectForKey:first] isEqualToNumber:PebbleRequestIDStatus])
     {
         MPMediaItem *currentTrack = [self getCurrentTrack];
         if (currentTrack)
         {
-            dict = @{ PebbleMessageStatusKey       : [NSNumber numberWithInt:1],
-                      PebbleMessageTrackInformationKey : [NSString stringWithFormat:@"\"%@\" by %@", [currentTrack valueForProperty:MPMediaItemPropertyTitle], [currentTrack valueForProperty:MPMediaItemPropertyTitle]]
+            NSString *trackInfo = [NSString stringWithFormat:@"\"%@\" by %@", [currentTrack valueForProperty:MPMediaItemPropertyTitle], [currentTrack valueForProperty:MPMediaItemPropertyAlbumArtist]];
+            trackInfo = [trackInfo substringToIndex: MIN(33, [trackInfo length])];
+            dict = @{   PebbleMessageRequestIDKey   : PebbleRequestIDStatus,
+                        PebbleMessageStatusKey      : [NSNumber numberWithInt:1],
+                        PebbleMessageTrackInformationKey : trackInfo
                      };
         }
         else
         {
-            dict = @{ PebbleMessageStatusKey       : [NSNumber numberWithInt:0],
+            dict = @{ PebbleMessageRequestIDKey   : PebbleRequestIDStatus,
+                      PebbleMessageStatusKey      : [NSNumber numberWithInt:0],
                       PebbleMessageStringKey    : @"Nothing playing"
                     };
         }
         [[PebbleConnectionManager sharedManager] sendMessage:dict];
     }
-    else if ([[message objectForKey:first] isEqualToNumber:[NSNumber numberWithInt:42]])
+    else if ([[message objectForKey:first] isEqualToNumber:PebbleRequestIDTweet])
     {
-        dict = @{ PebbleMessageTweetedKey     : @"Tweeted" };
+        dict = @{PebbleMessageRequestIDKey   : PebbleRequestIDTweet,
+                 PebbleMessageTweetedKey     : @"Tweeted" };
         [self tweetCurrentTrack];
         [[PebbleConnectionManager sharedManager] sendMessage:dict];
     }
@@ -128,7 +134,7 @@
     NSString *tweet = self.tweetTemplate;//[NSString stringWithFormat:@"#NowPlaying \"%@\" by %@. #pebbleTweets %@", title, artist, [url absoluteString]];
     tweet = [tweet stringByReplacingOccurrencesOfString:@"<artist>" withString:artist];
     tweet = [tweet stringByReplacingOccurrencesOfString:@"<link>" withString:[url absoluteString]];
-    tweet = [tweet stringByReplacingOccurrencesOfString:@"<title>" withString:[NSString stringWithFormat:@"\"%@\"", title]];
+    tweet = [tweet stringByReplacingOccurrencesOfString:@"<track>" withString:[NSString stringWithFormat:@"\"%@\"", title]];
     tweet = [self stripDoubleSpaceFrom:tweet];
     return tweet;
 }
@@ -137,7 +143,7 @@
 {
     NSString *tweet = [self getTweetText];
     NSLog(@"%@", tweet);
-    [self postStatus:tweet];
+    //[self postStatus:tweet];
 }
 
 - (void) postStatus:(NSString *) status

@@ -1,0 +1,28 @@
+{
+  "uuid": "df04464f-aba9-40ad-90e4-88a5968d6964",
+  "shortName": "Tweeter",
+  "longName": "Tweeter",
+  "companyName": "MakeAwesomeHappen",
+  "versionCode": 1,
+  "versionLabel": "1.0.0",
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": [
+      {
+        "type": "png",
+        "name": "IMAGE_SUN",
+        "file": "img/sun.png"
+      },
+      {
+        "type": "png",
+        "name": "IMAGE_RAIN",
+        "file": "img/rain.png"
+      }
+    ]
+  }
+}
