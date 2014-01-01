@@ -171,7 +171,7 @@
     NSString *tweet = self.tweetTemplate;//[NSString stringWithFormat:@"#NowPlaying \"%@\" by %@. #pebbleTweets %@", title, artist, [url absoluteString]];
     tweet = [tweet stringByReplacingOccurrencesOfString:@"<artist>" withString:artist];
     tweet = [tweet stringByReplacingOccurrencesOfString:@"<link>" withString:[url absoluteString]];
-    tweet = [tweet stringByReplacingOccurrencesOfString:@"<track>" withString:[NSString stringWithFormat:@"\"%@\"", title]];
+    tweet = [tweet stringByReplacingOccurrencesOfString:@"<title>" withString:[NSString stringWithFormat:@"\"%@\"", title]];
     tweet = [self stripDoubleSpaceFrom:tweet];
     return tweet;
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1517AD941874671700EFB2E0 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 1517AD921874671700EFB2E0 /* background.png */; };
+		1517AD951874671700EFB2E0 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1517AD931874671700EFB2E0 /* icon.png */; };
 		154F0560185870CB0022BB17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154F055F185870CB0022BB17 /* Foundation.framework */; };
 		154F0562185870CB0022BB17 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154F0561185870CB0022BB17 /* CoreGraphics.framework */; };
 		154F0564185870CB0022BB17 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154F0563185870CB0022BB17 /* UIKit.framework */; };
@@ -37,8 +39,6 @@
 		15FB1F671871CF26001A90D2 /* ConnectionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FB1F661871CF26001A90D2 /* ConnectionsManager.m */; };
 		15FB1F6D1871F855001A90D2 /* RFKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FB1F6A1871F855001A90D2 /* RFKeyboardToolbar.m */; };
 		15FB1F6E1871F855001A90D2 /* RFToolbarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FB1F6C1871F855001A90D2 /* RFToolbarButton.m */; };
-		15FB1F7518721476001A90D2 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FB1F7418721476001A90D2 /* background.png */; };
-		15FB1F78187280FC001A90D2 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 15FB1F77187280FC001A90D2 /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1517AD921874671700EFB2E0 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		1517AD931874671700EFB2E0 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		154F055C185870CB0022BB17 /* Pebble MusicTweeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pebble MusicTweeter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		154F055F185870CB0022BB17 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		154F0561185870CB0022BB17 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -93,8 +95,6 @@
 		15FB1F6A1871F855001A90D2 /* RFKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFKeyboardToolbar.m; sourceTree = "<group>"; };
 		15FB1F6B1871F855001A90D2 /* RFToolbarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFToolbarButton.h; sourceTree = "<group>"; };
 		15FB1F6C1871F855001A90D2 /* RFToolbarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFToolbarButton.m; sourceTree = "<group>"; };
-		15FB1F7418721476001A90D2 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
-		15FB1F77187280FC001A90D2 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Images/icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,10 +239,10 @@
 		15FB1F7618728063001A90D2 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				15FB1F77187280FC001A90D2 /* icon.png */,
-				15FB1F7418721476001A90D2 /* background.png */,
+				1517AD921874671700EFB2E0 /* background.png */,
+				1517AD931874671700EFB2E0 /* icon.png */,
 			);
-			name = Images;
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,8 +322,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				154F056A185870CB0022BB17 /* InfoPlist.strings in Resources */,
-				15FB1F78187280FC001A90D2 /* icon.png in Resources */,
-				15FB1F7518721476001A90D2 /* background.png in Resources */,
+				1517AD951874671700EFB2E0 /* icon.png in Resources */,
+				1517AD941874671700EFB2E0 /* background.png in Resources */,
 				154F058F185870F30022BB17 /* iPhone.storyboard in Resources */,
 				154F0572185870CB0022BB17 /* Images.xcassets in Resources */,
 			);

@@ -44,7 +44,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     NSLog(@"View loaded");
-    RFToolbarButton *button1 = [[RFToolbarButton alloc] initWithTitle:@"Title" andText:@" <track> "];
+    RFToolbarButton *button1 = [[RFToolbarButton alloc] initWithTitle:@"Title" andText:@" <title> "];
     RFToolbarButton *button2 = [[RFToolbarButton alloc] initWithTitle:@"Artist" andText:@" <artist> "];
     RFToolbarButton *button3 = [[RFToolbarButton alloc] initWithTitle:@"Link" andText:@" <link> "];
     
