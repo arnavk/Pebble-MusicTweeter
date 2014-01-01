@@ -17,7 +17,7 @@
 
 @property (nonatomic) ACAccountStore *accountStore;
 @property (nonatomic, strong) NSString *tweetTemplate;
-
+@property (nonatomic, strong) MPMediaItem *currentTrack;
 @end
 
 @implementation ConnectionsManager
@@ -55,24 +55,62 @@
     NSDictionary * dict;
     if ([[message objectForKey:first] isEqualToNumber:PebbleRequestIDStatus])
     {
-        MPMediaItem *currentTrack = [self getCurrentTrack];
-        if (currentTrack)
+        self.currentTrack = [self getCurrentTrack];
+        NSString *trackArtist = [self.currentTrack valueForProperty:MPMediaItemPropertyArtist];
+        if ([trackArtist length] > 32)
+            trackArtist = [[trackArtist substringToIndex:27] stringByAppendingString:@"..."];
+
+        NSString *trackTitle = [self.currentTrack valueForProperty:MPMediaItemPropertyTitle];
+        if ([trackTitle length] > 30)
+            trackTitle = [[trackTitle substringToIndex:27] stringByAppendingString:@"..."];
+        trackTitle = [@"\"" stringByAppendingString:[trackTitle stringByAppendingString:@"\""]];
+        
+        if (self.currentTrack)
         {
-            NSString *trackInfo = [NSString stringWithFormat:@"\"%@\" by %@", [currentTrack valueForProperty:MPMediaItemPropertyTitle], [currentTrack valueForProperty:MPMediaItemPropertyAlbumArtist]];
-            trackInfo = [trackInfo substringToIndex: MIN(33, [trackInfo length])];
+            
             dict = @{   PebbleMessageRequestIDKey   : PebbleRequestIDStatus,
                         PebbleMessageStatusKey      : [NSNumber numberWithInt:1],
-                        PebbleMessageTrackInformationKey : trackInfo
-                     };
+                        PebbleMessageStringKey      : @"Getting track information...",
+                        PebbleMessageTrackTitleKey  : trackTitle,
+                        PebbleMessageTrackArtistKey : trackArtist
+                        };
+            
+            [[PebbleConnectionManager sharedManager] sendMessage:dict];
         }
         else
         {
-            dict = @{ PebbleMessageRequestIDKey   : PebbleRequestIDStatus,
-                      PebbleMessageStatusKey      : [NSNumber numberWithInt:0],
-                      PebbleMessageStringKey    : @"Nothing playing"
+            dict = @{ PebbleMessageRequestIDKey     : PebbleRequestIDStatus,
+                      PebbleMessageStatusKey        : [NSNumber numberWithInt:0],
+                      PebbleMessageStringKey        : @"Nothing playing"
                     };
+            [[PebbleConnectionManager sharedManager] sendMessage:dict];
         }
+    }
+    else if ([[message objectForKey:first] isEqualToNumber:PebbleMessageTrackArtistKey])
+    {
+        NSString *trackArtist = [self.currentTrack valueForProperty:MPMediaItemPropertyArtist];
+        if ([trackArtist length] > 32)
+            trackArtist = [[trackArtist substringToIndex:27] stringByAppendingString:@"..."];
+        
+        dict = @{   PebbleMessageRequestIDKey   : PebbleRequestIDStatus,
+                    PebbleMessageStatusKey      : [NSNumber numberWithInt:1],
+                    PebbleMessageTrackArtistKey : trackArtist
+                    };
         [[PebbleConnectionManager sharedManager] sendMessage:dict];
+    }
+    else if ([[message objectForKey:first] isEqualToNumber:PebbleMessageTrackTitleKey])
+    {
+        NSString *trackTitle = [self.currentTrack valueForProperty:MPMediaItemPropertyTitle];
+        if ([trackTitle length] > 30)
+            trackTitle = [[trackTitle substringToIndex:27] stringByAppendingString:@"..."];
+        trackTitle = [@"\"" stringByAppendingString:[trackTitle stringByAppendingString:@"\""]];
+
+        dict = @{   PebbleMessageRequestIDKey   : PebbleRequestIDStatus,
+                    PebbleMessageStatusKey      : [NSNumber numberWithInt:1],
+                    PebbleMessageTrackTitleKey : trackTitle,
+                    };
+        [[PebbleConnectionManager sharedManager] sendMessage:dict];
+        
     }
     else if ([[message objectForKey:first] isEqualToNumber:PebbleRequestIDTweet])
     {
@@ -143,7 +181,7 @@
 {
     NSString *tweet = [self getTweetText];
     NSLog(@"%@", tweet);
-    //[self postStatus:tweet];
+//    [self postStatus:tweet];
 }
 
 - (void) postStatus:(NSString *) status

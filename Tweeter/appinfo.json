@@ -15,13 +15,13 @@
     "media": [
       {
         "type": "png",
-        "name": "IMAGE_SUN",
-        "file": "img/sun.png"
+        "name": "IMAGE_TWEET",
+        "file": "img/tweet.png"
       },
       {
         "type": "png",
-        "name": "IMAGE_RAIN",
-        "file": "img/rain.png"
+        "name": "IMAGE_REFRESH",
+        "file": "img/refresh.png"
       }
     ]
   }

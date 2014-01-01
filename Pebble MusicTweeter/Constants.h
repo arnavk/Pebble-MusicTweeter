@@ -18,9 +18,13 @@
 #define PebbleMessageStringKey [NSNumber numberWithInt:3]
 #define PebbleMessageTrackInformationKey [NSNumber numberWithInt:4]
 #define PebbleMessageTweetedKey [NSNumber numberWithInt:5]
+#define PebbleMessageTrackTitleKey [NSNumber numberWithInt:6]
+#define PebbleMessageTrackArtistKey [NSNumber numberWithInt:7]
 
 #define PebbleRequestIDStatus [NSNumber numberWithInt:0]
 #define PebbleRequestIDTrackInfo [NSNumber numberWithInt:1]
 #define PebbleRequestIDTweet [NSNumber numberWithInt:2]
+#define PebbleRequestIDTrackTitle [NSNumber numberWithInt:3]
+#define PebbleRequestIDTrackArtist [NSNumber numberWithInt:4]
 
 #endif
