@@ -105,6 +105,7 @@ void in_received_handler(DictionaryIterator *received, void *context) {
     {
       case REQUEST_STATUS:
       { 
+        APP_LOG(APP_LOG_LEVEL_DEBUG, "REQUEST_STATUS");
         Tuple *status_tuple = dict_find(received, KEY_STATUS);
         uint32_t status = status_tuple->value->uint32;
         if (status == 0)
@@ -119,7 +120,7 @@ void in_received_handler(DictionaryIterator *received, void *context) {
         else
         {
           text_layer_set_text(text_layer, "");
-
+          APP_LOG(APP_LOG_LEVEL_DEBUG, "SETTING MUSIC INFO");
           Tuple *title_tuple = dict_find(received, KEY_TRACK_TITLE);
           text_layer_set_text(track_title_layer, title_tuple->value->cstring);
 
@@ -138,6 +139,7 @@ void in_received_handler(DictionaryIterator *received, void *context) {
       case REQUEST_TWEET:
       {
         // Tuple *message_tuple = dict_find(received, KEY_TWEET);
+        APP_LOG(APP_LOG_LEVEL_DEBUG, "REQUEST TWEET");
         text_layer_set_text(text_layer, "Tweeted!");        
         show_buttons();
       }

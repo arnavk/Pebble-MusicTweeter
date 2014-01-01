@@ -114,8 +114,7 @@
     }
     else if ([[message objectForKey:first] isEqualToNumber:PebbleRequestIDTweet])
     {
-        dict = @{PebbleMessageRequestIDKey   : PebbleRequestIDTweet,
-                 PebbleMessageTweetedKey     : @"Tweeted" };
+        dict = @{PebbleMessageRequestIDKey   : PebbleRequestIDTweet};
         [self tweetCurrentTrack];
         [[PebbleConnectionManager sharedManager] sendMessage:dict];
     }
