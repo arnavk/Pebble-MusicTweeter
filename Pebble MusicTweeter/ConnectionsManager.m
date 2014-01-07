@@ -10,7 +10,6 @@
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
 #import <MediaPlayer/MediaPlayer.h>
-#import <PebbleKit/PebbleKit.h>
 #import "LastFMFetcher.h"
 
 @interface ConnectionsManager ()
@@ -18,6 +17,7 @@
 @property (nonatomic) ACAccountStore *accountStore;
 @property (nonatomic, strong) NSString *tweetTemplate;
 @property (nonatomic, strong) MPMediaItem *currentTrack;
+@property (nonatomic, weak) id<PebbleInformationDisplayDelegate> pebbleInformationDisplay;
 @end
 
 @implementation ConnectionsManager
@@ -124,6 +124,18 @@
 - (void) respondToMessage:(NSDictionary *)message fromWatch:(PBWatch *)watch
 {
     //TODO
+    
+    [self respondToMessage:message];
+}
+
+- (void) connectedToWatch:(PBWatch *)watch
+{
+    [self.pebbleInformationDisplay connectedToWatch:watch];
+}
+
+- (void) disconnectedFromWatch:(PBWatch *)watch
+{
+    [self.pebbleInformationDisplay disconnectedFromWatch:watch];
 }
 
 #pragma mark UITextViewDelegate methods
@@ -136,7 +148,16 @@
     NSLog(@"%@", [[NSUserDefaults standardUserDefaults] stringForKey:NSUDTemplateTweetKey]);
 }
 
-#pragma mark Other class methods
+#pragma mark Other Class methods
+- (void) registerDelegate:(id<PebbleInformationDisplayDelegate>)delegate
+{
+    self.pebbleInformationDisplay = delegate;
+}
+- (PBWatch *) connectedWatch {
+    return [[PebbleConnectionManager sharedManager] lastConnectedWatch];
+}
+
+#pragma mark Twitter stuff
 
 - (ACAccountStore *) accountStore {
     if (!_accountStore) _accountStore = [[ACAccountStore alloc] init];

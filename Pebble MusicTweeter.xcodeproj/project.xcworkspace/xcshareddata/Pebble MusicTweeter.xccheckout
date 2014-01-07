@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>95027CEB-DAD8-4587-8A70-4164BC484380</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Pebble MusicTweeter</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F5C43C08-CE19-419D-80B5-49B0AD2817D9</key>
+		<string>https://github.com/radzinzki/Pebble-MusicTweeter.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Pebble MusicTweeter.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F5C43C08-CE19-419D-80B5-49B0AD2817D9</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/radzinzki/Pebble-MusicTweeter.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F5C43C08-CE19-419D-80B5-49B0AD2817D9</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F5C43C08-CE19-419D-80B5-49B0AD2817D9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Pebble MusicTweeter</string>
+		</dict>
+	</array>
+</dict>
+</plist>

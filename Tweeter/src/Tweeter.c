@@ -162,7 +162,7 @@ static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
     disabled = 1;
     text_layer_set_text(text_layer, "Select");
     send_message (1, REQUEST_TWEET);
-    text_layer_set_text(text_layer, "Tweeting");
+    text_layer_set_text(text_layer, "Tweeting...");
 
     hide_buttons();
 

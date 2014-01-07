@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "PebbleConnectionManager.h"
+#import <PebbleKit/PebbleKit.h>
+
+@protocol PebbleInformationDisplayDelegate
+
+- (void) connectedToWatch:(PBWatch *)watch;
+- (void) disconnectedFromWatch:(PBWatch *)watch;
+
+@end
 
 @interface ConnectionsManager : NSObject <PebbleResponderDelegate, UITextViewDelegate>
 
@@ -15,5 +23,7 @@
 + (void) setup;
 
 - (NSString *) tweetTemplate;
+- (void) registerDelegate:(id<PebbleInformationDisplayDelegate>)delegate;
+- (PBWatch *) connectedWatch;
 
 @end

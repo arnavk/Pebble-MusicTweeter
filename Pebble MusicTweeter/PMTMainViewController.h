@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ConnectionsManager.h"
 
-@interface PMTMainViewController : UIViewController <UITextFieldDelegate>
+@interface PMTMainViewController : UIViewController <PebbleInformationDisplayDelegate>
 
 @end

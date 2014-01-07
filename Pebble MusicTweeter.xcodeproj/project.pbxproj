@@ -36,6 +36,7 @@
 		159997811864C72F004A5352 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159997801864C72F004A5352 /* CFNetwork.framework */; };
 		159997831864C737004A5352 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159997821864C737004A5352 /* MessageUI.framework */; };
 		159997861864CA6C004A5352 /* PebbleConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 159997851864CA6C004A5352 /* PebbleConnectionManager.m */; };
+		15A16D35187BF9A6008C0E67 /* Tweeter.pbw in Resources */ = {isa = PBXBuildFile; fileRef = 15A16D34187BF9A6008C0E67 /* Tweeter.pbw */; };
 		15FB1F671871CF26001A90D2 /* ConnectionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FB1F661871CF26001A90D2 /* ConnectionsManager.m */; };
 		15FB1F6D1871F855001A90D2 /* RFKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FB1F6A1871F855001A90D2 /* RFKeyboardToolbar.m */; };
 		15FB1F6E1871F855001A90D2 /* RFToolbarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FB1F6C1871F855001A90D2 /* RFToolbarButton.m */; };
@@ -89,6 +90,8 @@
 		159997821864C737004A5352 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		159997841864CA6C004A5352 /* PebbleConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PebbleConnectionManager.h; sourceTree = "<group>"; };
 		159997851864CA6C004A5352 /* PebbleConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PebbleConnectionManager.m; sourceTree = "<group>"; };
+		15A16D34187BF9A6008C0E67 /* Tweeter.pbw */ = {isa = PBXFileReference; lastKnownFileType = file; name = Tweeter.pbw; path = Tweeter/build/Tweeter.pbw; sourceTree = SOURCE_ROOT; };
+		15A16D36187BFBE3008C0E67 /* Tweeter.xyz */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tweeter.xyz; sourceTree = "<group>"; };
 		15FB1F651871CF26001A90D2 /* ConnectionsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionsManager.h; sourceTree = "<group>"; };
 		15FB1F661871CF26001A90D2 /* ConnectionsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionsManager.m; sourceTree = "<group>"; };
 		15FB1F691871F855001A90D2 /* RFKeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFKeyboardToolbar.h; sourceTree = "<group>"; };
@@ -201,6 +204,8 @@
 				154F0567185870CB0022BB17 /* Pebble MusicTweeter-Info.plist */,
 				154F0568185870CB0022BB17 /* InfoPlist.strings */,
 				154F056B185870CB0022BB17 /* main.m */,
+				15A16D36187BFBE3008C0E67 /* Tweeter.xyz */,
+				15A16D34187BF9A6008C0E67 /* Tweeter.pbw */,
 				154F056D185870CB0022BB17 /* Pebble MusicTweeter-Prefix.pch */,
 				154F05DD1858DE000022BB17 /* Constants.h */,
 			);
@@ -321,6 +326,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15A16D35187BF9A6008C0E67 /* Tweeter.pbw in Resources */,
 				154F056A185870CB0022BB17 /* InfoPlist.strings in Resources */,
 				1517AD951874671700EFB2E0 /* icon.png in Resources */,
 				1517AD941874671700EFB2E0 /* background.png in Resources */,

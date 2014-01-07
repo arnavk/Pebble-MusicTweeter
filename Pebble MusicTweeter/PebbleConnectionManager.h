@@ -13,6 +13,8 @@
 
 - (void) respondToMessage:(NSDictionary *)message fromWatch:(PBWatch *)watch;
 - (void) respondToMessage:(NSDictionary *)message;
+- (void) connectedToWatch:(PBWatch *)watch;
+- (void) disconnectedFromWatch:(PBWatch *)watch;
 
 @end
 
