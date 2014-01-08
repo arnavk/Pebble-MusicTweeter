@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UITextView *tweetTemplateField;
 @property (strong, nonatomic) IBOutlet UILabel *connectionLabel;
 @property (strong, nonatomic) IBOutlet UIButton *downloadWatchappButton;
+@property (strong, nonatomic) IBOutlet UIButton *twitterConnectionButton;
 @property (strong, nonatomic) UIDocumentInteractionController *documentController;
 
 @end
@@ -33,6 +34,11 @@
     self.tweetTemplateField.text = [[ConnectionsManager sharedManager] tweetTemplate];
     [self decorateTextView];
     
+    //BOOL shouldDisplayTwitterAccessButton = [[NSUserDefaults standardUserDefaults] boolForKey:NSUDTwitterAccessKey];
+    if ([[ConnectionsManager sharedManager] userHasAccessToTwitter] == YES)
+    {
+        [self connectedToTwitter];
+    }
 }
 
 - (void) decorateTextView
@@ -50,7 +56,6 @@
     RFToolbarButton *button1 = [[RFToolbarButton alloc] initWithTitle:@"Title" andText:@" <title> "];
     RFToolbarButton *button2 = [[RFToolbarButton alloc] initWithTitle:@"Artist" andText:@" <artist> "];
     RFToolbarButton *button3 = [[RFToolbarButton alloc] initWithTitle:@"Link" andText:@" <link> "];
-    
 
     [RFKeyboardToolbar addToTextView:self.tweetTemplateField withButtons:@[button1, button2, button3]];
 }
@@ -114,6 +119,24 @@
 - (CGRect)documentInteractionControllerRectForPreview:(UIDocumentInteractionController *)controller
 {
     return self.view.frame;
+}
+
+#pragma mark - Twitter Login code
+- (IBAction)tweetButtonPressed:(id)sender {
+    [[ConnectionsManager sharedManager] enableTwitter];
+    //self.twitterConnectionButton.titleLabel.text = @"Authenticating...";
+    [self.twitterConnectionButton setTitle:@"Authenticating ..." forState:UIControlStateDisabled];
+    self.twitterConnectionButton.enabled = NO;
+}
+
+- (void) connectedToTwitter
+{
+    [self.twitterConnectionButton setTitle:@"Connected to Twitter." forState:UIControlStateDisabled];
+    self.twitterConnectionButton.enabled = NO;
+}
+
+- (IBAction)test:(id)sender {
+    [[ConnectionsManager sharedManager] test];
 }
 
 

@@ -11,6 +11,7 @@
 
 #define LastFMKey @"1808fdf8f08dc463dd748e97c9eb2f19"
 #define NSUDTemplateTweetKey @"PMT_TEMPALTE_TWEET"
+#define NSUDTwitterAccessKey @"PMT_TWITTER_ACCESS"
 
 #define PebbleMessageRequestIDKey [NSNumber numberWithInt:0]
 #define PebbleMessageStatusKey [NSNumber numberWithInt:1]

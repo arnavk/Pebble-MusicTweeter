@@ -21,7 +21,7 @@
 		154F057B185870CB0022BB17 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154F0563185870CB0022BB17 /* UIKit.framework */; };
 		154F0583185870CB0022BB17 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 154F0581185870CB0022BB17 /* InfoPlist.strings */; };
 		154F0585185870CB0022BB17 /* Pebble_MusicTweeterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 154F0584185870CB0022BB17 /* Pebble_MusicTweeterTests.m */; };
-		154F058F185870F30022BB17 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 154F058E185870F30022BB17 /* iPhone.storyboard */; };
+		154F058F185870F30022BB17 /* iPhone4inch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 154F058E185870F30022BB17 /* iPhone4inch.storyboard */; };
 		154F0591185871C20022BB17 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154F0590185871C20022BB17 /* Social.framework */; };
 		154F0593185871CA0022BB17 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154F0592185871CA0022BB17 /* Twitter.framework */; };
 		154F0596185872D30022BB17 /* PMTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 154F0595185872D30022BB17 /* PMTMainViewController.m */; };
@@ -37,6 +37,8 @@
 		159997831864C737004A5352 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159997821864C737004A5352 /* MessageUI.framework */; };
 		159997861864CA6C004A5352 /* PebbleConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 159997851864CA6C004A5352 /* PebbleConnectionManager.m */; };
 		15A16D35187BF9A6008C0E67 /* Tweeter.pbw in Resources */ = {isa = PBXBuildFile; fileRef = 15A16D34187BF9A6008C0E67 /* Tweeter.pbw */; };
+		15E63FD5187D5A27004848B2 /* iPhone35inch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15E63FD4187D5A27004848B2 /* iPhone35inch.storyboard */; };
+		15E63FD7187D5E2C004848B2 /* background35.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E63FD6187D5E2C004848B2 /* background35.png */; };
 		15FB1F671871CF26001A90D2 /* ConnectionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FB1F661871CF26001A90D2 /* ConnectionsManager.m */; };
 		15FB1F6D1871F855001A90D2 /* RFKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FB1F6A1871F855001A90D2 /* RFKeyboardToolbar.m */; };
 		15FB1F6E1871F855001A90D2 /* RFToolbarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FB1F6C1871F855001A90D2 /* RFToolbarButton.m */; };
@@ -71,7 +73,7 @@
 		154F0580185870CB0022BB17 /* Pebble MusicTweeterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pebble MusicTweeterTests-Info.plist"; sourceTree = "<group>"; };
 		154F0582185870CB0022BB17 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		154F0584185870CB0022BB17 /* Pebble_MusicTweeterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pebble_MusicTweeterTests.m; sourceTree = "<group>"; };
-		154F058E185870F30022BB17 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
+		154F058E185870F30022BB17 /* iPhone4inch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone4inch.storyboard; sourceTree = "<group>"; };
 		154F0590185871C20022BB17 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		154F0592185871CA0022BB17 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		154F0594185872D30022BB17 /* PMTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMTMainViewController.h; sourceTree = "<group>"; };
@@ -92,6 +94,8 @@
 		159997851864CA6C004A5352 /* PebbleConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PebbleConnectionManager.m; sourceTree = "<group>"; };
 		15A16D34187BF9A6008C0E67 /* Tweeter.pbw */ = {isa = PBXFileReference; lastKnownFileType = file; name = Tweeter.pbw; path = Tweeter/build/Tweeter.pbw; sourceTree = SOURCE_ROOT; };
 		15A16D36187BFBE3008C0E67 /* Tweeter.xyz */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tweeter.xyz; sourceTree = "<group>"; };
+		15E63FD4187D5A27004848B2 /* iPhone35inch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone35inch.storyboard; sourceTree = "<group>"; };
+		15E63FD6187D5E2C004848B2 /* background35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background35.png; sourceTree = "<group>"; };
 		15FB1F651871CF26001A90D2 /* ConnectionsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionsManager.h; sourceTree = "<group>"; };
 		15FB1F661871CF26001A90D2 /* ConnectionsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionsManager.m; sourceTree = "<group>"; };
 		15FB1F691871F855001A90D2 /* RFKeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFKeyboardToolbar.h; sourceTree = "<group>"; };
@@ -182,7 +186,8 @@
 				15FB1F7618728063001A90D2 /* Images */,
 				154F056E185870CB0022BB17 /* PMTAppDelegate.h */,
 				154F056F185870CB0022BB17 /* PMTAppDelegate.m */,
-				154F058E185870F30022BB17 /* iPhone.storyboard */,
+				154F058E185870F30022BB17 /* iPhone4inch.storyboard */,
+				15E63FD4187D5A27004848B2 /* iPhone35inch.storyboard */,
 				154F05DA1858DDD00022BB17 /* LastFMFetcher.h */,
 				154F05DB1858DDD00022BB17 /* LastFMFetcher.m */,
 				154F0594185872D30022BB17 /* PMTMainViewController.h */,
@@ -245,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				1517AD921874671700EFB2E0 /* background.png */,
+				15E63FD6187D5E2C004848B2 /* background35.png */,
 				1517AD931874671700EFB2E0 /* icon.png */,
 			);
 			path = Images;
@@ -329,8 +335,10 @@
 				15A16D35187BF9A6008C0E67 /* Tweeter.pbw in Resources */,
 				154F056A185870CB0022BB17 /* InfoPlist.strings in Resources */,
 				1517AD951874671700EFB2E0 /* icon.png in Resources */,
+				15E63FD7187D5E2C004848B2 /* background35.png in Resources */,
 				1517AD941874671700EFB2E0 /* background.png in Resources */,
-				154F058F185870F30022BB17 /* iPhone.storyboard in Resources */,
+				154F058F185870F30022BB17 /* iPhone4inch.storyboard in Resources */,
+				15E63FD5187D5A27004848B2 /* iPhone35inch.storyboard in Resources */,
 				154F0572185870CB0022BB17 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,26 +21,36 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" text="if you are seeing this, something is wrong. Restart the app. If that doesn't work, email me at pmt@arnavkumar.com" translatesAutoresizingMaskIntoConstraints="NO" id="4CP-ql-qXe">
-                                <rect key="frame" x="20" y="109" width="280" height="151"/>
+                                <rect key="frame" x="20" y="110" width="280" height="154"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" keyboardType="twitter" keyboardAppearance="alert" returnKeyType="done"/>
                             </textView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Connecting ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KhI-aG-7YC">
-                                <rect key="frame" x="20" y="380" width="280" height="21"/>
+                                <rect key="frame" x="20" y="436" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9p-Qw-tYf">
-                                <rect key="frame" x="20" y="415" width="280" height="30"/>
+                                <rect key="frame" x="20" y="465" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Get Watchapp">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="downloadWatchappButtonPressed:" destination="gyn-en-EU5" eventType="touchUpInside" id="i32-Zf-XYt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qi6-cO-SQa">
+                                <rect key="frame" x="20" y="398" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Connect To Twitter">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tweetButtonPressed:" destination="gyn-en-EU5" eventType="touchUpInside" id="AwQ-g0-i3l"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -51,6 +61,7 @@
                         <outlet property="connectionLabel" destination="KhI-aG-7YC" id="oAR-g2-vyD"/>
                         <outlet property="downloadWatchappButton" destination="C9p-Qw-tYf" id="ORX-Bo-tXB"/>
                         <outlet property="tweetTemplateField" destination="4CP-ql-qXe" id="i2g-l7-jeL"/>
+                        <outlet property="twitterConnectionButton" destination="Qi6-cO-SQa" id="SWD-Dz-okT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KWS-It-pPG" userLabel="First Responder" sceneMemberID="firstResponder"/>

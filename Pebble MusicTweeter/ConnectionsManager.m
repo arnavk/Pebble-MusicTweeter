@@ -164,7 +164,7 @@
     return _accountStore;
 }
 
-- (BOOL)userHasAccessToTwitter
+- (BOOL) userHasAccessToTwitter
 {
     return [SLComposeViewController
             isAvailableForServiceType:SLServiceTypeTwitter];
@@ -201,7 +201,23 @@
 {
     NSString *tweet = [self getTweetText];
     NSLog(@"%@", tweet);
-//    [self postStatus:tweet];
+    [self postStatus:tweet];
+}
+
+- (void) enableTwitter
+{
+    ACAccountType *accountType = [self.accountStore accountTypeWithAccountTypeIdentifier:
+                                  ACAccountTypeIdentifierTwitter];
+    
+    [self.accountStore requestAccessToAccountsWithType:accountType options:nil
+                                  completion:^(BOOL granted, NSError *error)
+    {
+        if (granted == YES)
+        {
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:NSUDTwitterAccessKey];
+            [self.pebbleInformationDisplay connectedToTwitter];
+        }
+    }];
 }
 
 - (void) postStatus:(NSString *) status
@@ -253,6 +269,10 @@
     [self.accountStore requestAccessToAccountsWithType:twitterType
                                                options:NULL
                                             completion:accountStoreHandler];
+}
+- (void) test
+{
+    [self postStatus:@"yolo!"];
 }
 
 @end
