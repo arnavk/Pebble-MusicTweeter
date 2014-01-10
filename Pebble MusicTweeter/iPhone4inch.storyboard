@@ -50,7 +50,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="tweetButtonPressed:" destination="gyn-en-EU5" eventType="touchUpInside" id="AwQ-g0-i3l"/>
+                                    <action selector="twitterConnectionButtonPressed:" destination="gyn-en-EU5" eventType="touchUpInside" id="AfG-Jd-4Va"/>
                                 </connections>
                             </button>
                         </subviews>

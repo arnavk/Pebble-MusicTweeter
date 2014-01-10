@@ -14,7 +14,9 @@
 
 - (void) connectedToWatch:(PBWatch *)watch;
 - (void) disconnectedFromWatch:(PBWatch *)watch;
-- (void) connectedToTwitter;
+//- (void) connectedToTwitter;
+- (void) connectedToTwitterWithUsername:(NSString *) username;
+- (void) presentTwitterUsernames:(NSArray *)usernames;
 
 @end
 
@@ -27,7 +29,7 @@
 - (void) registerDelegate:(id<PebbleInformationDisplayDelegate>)delegate;
 - (PBWatch *) connectedWatch;
 - (void) enableTwitter;
-- (BOOL) userHasAccessToTwitter;
+- (void) enableTwitterForUsername:(NSString *)username;
 - (void) test;
 
 @end

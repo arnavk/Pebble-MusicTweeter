@@ -17,7 +17,7 @@
 @property (nonatomic) ACAccountStore *accountStore;
 @property (nonatomic, strong) NSString *tweetTemplate;
 @property (nonatomic, strong) MPMediaItem *currentTrack;
-@property (nonatomic, weak) id<PebbleInformationDisplayDelegate> pebbleInformationDisplay;
+@property (nonatomic, weak) id<PebbleInformationDisplayDelegate> pebbleInformationDisplayDelegate;
 @end
 
 @implementation ConnectionsManager
@@ -42,7 +42,7 @@
 {
     NSString * template = [[NSUserDefaults standardUserDefaults] stringForKey:NSUDTemplateTweetKey];
     if (!template)
-        template = @"#NowPlaying <track> by <artist>. #pebbleTweets <link>";
+        template = @"#NowPlaying <title> by <artist>. #pebbleTweets <link>";
     return template;
 }
 
@@ -56,17 +56,16 @@
     if ([[message objectForKey:first] isEqualToNumber:PebbleRequestIDStatus])
     {
         self.currentTrack = [self getCurrentTrack];
-        NSString *trackArtist = [self.currentTrack valueForProperty:MPMediaItemPropertyArtist];
-        if ([trackArtist length] > 32)
-            trackArtist = [[trackArtist substringToIndex:27] stringByAppendingString:@"..."];
-
-        NSString *trackTitle = [self.currentTrack valueForProperty:MPMediaItemPropertyTitle];
-        if ([trackTitle length] > 30)
-            trackTitle = [[trackTitle substringToIndex:27] stringByAppendingString:@"..."];
-        trackTitle = [@"\"" stringByAppendingString:[trackTitle stringByAppendingString:@"\""]];
-        
         if (self.currentTrack)
         {
+            NSString *trackArtist = [self.currentTrack valueForProperty:MPMediaItemPropertyArtist];
+            if ([trackArtist length] > 32)
+                trackArtist = [[trackArtist substringToIndex:27] stringByAppendingString:@"..."];
+            
+            NSString *trackTitle = [self.currentTrack valueForProperty:MPMediaItemPropertyTitle];
+            if ([trackTitle length] > 30)
+                trackTitle = [[trackTitle substringToIndex:27] stringByAppendingString:@"..."];
+            trackTitle = [@"\"" stringByAppendingString:[trackTitle stringByAppendingString:@"\""]];
             
             dict = @{   PebbleMessageRequestIDKey   : PebbleRequestIDStatus,
                         PebbleMessageStatusKey      : [NSNumber numberWithInt:1],
@@ -114,11 +113,10 @@
     }
     else if ([[message objectForKey:first] isEqualToNumber:PebbleRequestIDTweet])
     {
-        dict = @{PebbleMessageRequestIDKey   : PebbleRequestIDTweet};
         [self tweetCurrentTrack];
-        [[PebbleConnectionManager sharedManager] sendMessage:dict];
+        return;
     }
-    NSLog(@"%@", dict);
+    NSLog(@"Message : %@", dict);
 }
 
 - (void) respondToMessage:(NSDictionary *)message fromWatch:(PBWatch *)watch
@@ -130,12 +128,12 @@
 
 - (void) connectedToWatch:(PBWatch *)watch
 {
-    [self.pebbleInformationDisplay connectedToWatch:watch];
+    [self.pebbleInformationDisplayDelegate connectedToWatch:watch];
 }
 
 - (void) disconnectedFromWatch:(PBWatch *)watch
 {
-    [self.pebbleInformationDisplay disconnectedFromWatch:watch];
+    [self.pebbleInformationDisplayDelegate disconnectedFromWatch:watch];
 }
 
 #pragma mark UITextViewDelegate methods
@@ -151,7 +149,7 @@
 #pragma mark Other Class methods
 - (void) registerDelegate:(id<PebbleInformationDisplayDelegate>)delegate
 {
-    self.pebbleInformationDisplay = delegate;
+    self.pebbleInformationDisplayDelegate = delegate;
 }
 - (PBWatch *) connectedWatch {
     return [[PebbleConnectionManager sharedManager] lastConnectedWatch];
@@ -162,12 +160,6 @@
 - (ACAccountStore *) accountStore {
     if (!_accountStore) _accountStore = [[ACAccountStore alloc] init];
     return _accountStore;
-}
-
-- (BOOL) userHasAccessToTwitter
-{
-    return [SLComposeViewController
-            isAvailableForServiceType:SLServiceTypeTwitter];
 }
 
 - (MPMediaItem *)getCurrentTrack {
@@ -214,14 +206,93 @@
     {
         if (granted == YES)
         {
-            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:NSUDTwitterAccessKey];
-            [self.pebbleInformationDisplay connectedToTwitter];
+            
+            NSArray *accounts = [self.accountStore accountsWithAccountType:accountType];
+            if (accounts.count == 0)
+            {
+                [[NSUserDefaults standardUserDefaults] setObject:nil forKey:NSUDTwitterChosenAccountUsernameKey];
+                [[NSUserDefaults standardUserDefaults] setBool:NO forKey:NSUDTwitterAccessKey];
+                
+                //TODO - Show Prompt for no Twitter IDs.
+                [self.pebbleInformationDisplayDelegate connectedToTwitterWithUsername:nil];
+            }
+            else if (accounts.count == 1)
+            {
+                ACAccount *account = [accounts lastObject];
+                [[NSUserDefaults standardUserDefaults] setObject:account.username forKey:NSUDTwitterChosenAccountUsernameKey];
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:NSUDTwitterAccessKey];
+                [self.pebbleInformationDisplayDelegate connectedToTwitterWithUsername:account.username];
+            }
+            else
+            {
+                //TODO - Show Prompt for list of IDs.
+                NSMutableArray *usernames = [[NSMutableArray alloc] init];
+                for (ACAccount *account in accounts)
+                {
+                    [usernames addObject:account.username];
+                }
+                [self.pebbleInformationDisplayDelegate presentTwitterUsernames:usernames];
+            }
         }
     }];
+}
+- (void) enableTwitterForUsername:(NSString *)username
+{
+    ACAccountType *accountType = [self.accountStore accountTypeWithAccountTypeIdentifier:
+                                  ACAccountTypeIdentifierTwitter];
+    
+    [self.accountStore requestAccessToAccountsWithType:accountType options:nil
+                                            completion:^(BOOL granted, NSError *error)
+     {
+         if (granted == YES)
+         {
+             
+             NSArray *accounts = [self.accountStore accountsWithAccountType:accountType];
+             if (accounts.count == 0)
+             {
+                 [[NSUserDefaults standardUserDefaults] setObject:nil forKey:NSUDTwitterChosenAccountUsernameKey];
+                 [[NSUserDefaults standardUserDefaults] setBool:NO forKey:NSUDTwitterAccessKey];
+                 [self.pebbleInformationDisplayDelegate connectedToTwitterWithUsername:nil];
+             }
+             else
+             {
+                 BOOL done = NO;
+                 for (ACAccount * account in accounts)
+                 {
+                     if ([account.username isEqualToString:username])
+                     {
+                         [[NSUserDefaults standardUserDefaults] setObject:account.username forKey:NSUDTwitterChosenAccountUsernameKey];
+                         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:NSUDTwitterAccessKey];
+                         [self.pebbleInformationDisplayDelegate connectedToTwitterWithUsername:account.username];
+                         done = YES;
+                         break;
+                     }
+                 }
+                 if (!done)
+                 {
+                     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:NSUDTwitterChosenAccountUsernameKey];
+                     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:NSUDTwitterAccessKey];
+                     [self.pebbleInformationDisplayDelegate connectedToTwitterWithUsername:nil];
+                 }
+                 
+             }
+         }
+     }];
 }
 
 - (void) postStatus:(NSString *) status
 {
+    //TODO - Handle the no account case.
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:NSUDTwitterAccessKey])
+    {
+        NSDictionary *dict = @{PebbleMessageRequestIDKey   : PebbleRequestIDTweet,
+                               PebbleMessageTweetedKey       : @"No account found!"};
+        [[PebbleConnectionManager sharedManager] sendMessage:dict];
+        NSLog(@"%@", dict);
+        return;
+    }
+    
+    
     ACAccountType *twitterType =
     [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
     
@@ -235,14 +306,23 @@
                                                 options:NSJSONReadingMutableContainers
                                                   error:NULL];
                 NSLog(@"[SUCCESS!] Created Tweet with ID: %@", postResponseData[@"id_str"]);
+                NSDictionary *dict = @{PebbleMessageRequestIDKey   : PebbleRequestIDTweet,
+                                       PebbleMessageTweetedKey       : @"Tweeted!"};
+                [[PebbleConnectionManager sharedManager] sendMessage:dict];
             }
             else {
                 NSLog(@"[ERROR] Server responded: status code %lD %@", (long)statusCode,
                       [NSHTTPURLResponse localizedStringForStatusCode:statusCode]);
+                NSDictionary *dict = @{PebbleMessageRequestIDKey   : PebbleRequestIDTweet,
+                         PebbleMessageTweetedKey       : @"Error Tweeting!"};
+                [[PebbleConnectionManager sharedManager] sendMessage:dict];
             }
         }
         else {
             NSLog(@"[ERROR] An error occurred while posting: %@", [error localizedDescription]);
+            NSDictionary *dict = @{PebbleMessageRequestIDKey   : PebbleRequestIDTweet,
+                                   PebbleMessageTweetedKey       : @"Error Tweeting!"};
+            [[PebbleConnectionManager sharedManager] sendMessage:dict];
         }
     };
     
@@ -250,6 +330,22 @@
     ^(BOOL granted, NSError *error) {
         if (granted) {
             NSArray *accounts = [self.accountStore accountsWithAccountType:twitterType];
+            ACAccount *account;
+            for(ACAccount *accountIterator in accounts)
+            {
+                if ([accountIterator.username isEqualToString:NSUDSavedUsername])
+                {
+                    account = accountIterator;
+                }
+            }
+            if (!account)
+            {
+                //TODO - Show some error message
+                [[NSUserDefaults standardUserDefaults] setObject:nil forKey:NSUDTwitterChosenAccountUsernameKey];
+                [[NSUserDefaults standardUserDefaults] setBool:NO forKey:NSUDTwitterAccessKey];
+                [self.pebbleInformationDisplayDelegate connectedToTwitterWithUsername:nil];
+                return;
+            }
             NSURL *url = [NSURL URLWithString:@"https://api.twitter.com"
                           @"/1.1/statuses/update.json"];
             NSDictionary *params = @{@"status" : status};
@@ -257,7 +353,7 @@
                                                     requestMethod:SLRequestMethodPOST
                                                               URL:url
                                                        parameters:params];
-            [request setAccount:[accounts lastObject]];
+            [request setAccount:account];
             [request performRequestWithHandler:requestHandler];
         }
         else {

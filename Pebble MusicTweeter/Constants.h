@@ -12,6 +12,9 @@
 #define LastFMKey @"1808fdf8f08dc463dd748e97c9eb2f19"
 #define NSUDTemplateTweetKey @"PMT_TEMPALTE_TWEET"
 #define NSUDTwitterAccessKey @"PMT_TWITTER_ACCESS"
+#define NSUDTwitterChosenAccountIndexKey @"PMT_CHOSEN_ACCCOUNT_INDEX"
+#define NSUDTwitterChosenAccountUsernameKey @"PMT_CHOSEN_ACCOUNT_USERNAME"
+#define NSUDSavedUsername [[NSUserDefaults standardUserDefaults] stringForKey:NSUDTwitterChosenAccountUsernameKey]
 
 #define PebbleMessageRequestIDKey [NSNumber numberWithInt:0]
 #define PebbleMessageStatusKey [NSNumber numberWithInt:1]
@@ -27,5 +30,7 @@
 #define PebbleRequestIDTweet [NSNumber numberWithInt:2]
 #define PebbleRequestIDTrackTitle [NSNumber numberWithInt:3]
 #define PebbleRequestIDTrackArtist [NSNumber numberWithInt:4]
+#define PebbleRequestError [NSNumber numberWithInt:4]
+
 
 #endif

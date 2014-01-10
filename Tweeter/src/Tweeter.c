@@ -4,8 +4,9 @@ static Window *window;
 
 static TextLayer *text_layer;
 
-static TextLayer *track_title_layer;
+
 static TextLayer *track_artist_layer;
+static TextLayer *track_title_layer;
 static TextLayer *by_layer;
 
 static BitmapLayer *tweet_icon_layer;
@@ -16,6 +17,7 @@ static GBitmap *refresh_icon_bitmap = NULL;
 
 
 static int disabled;
+static char *artist;
 
 enum {
   KEY_REQUEST,
@@ -26,6 +28,7 @@ enum {
   KEY_TWEET,
   KEY_TRACK_TITLE,
   KEY_TRACK_ARTIST,
+  KEY_ERROR,
 };
 
 enum {
@@ -34,6 +37,7 @@ enum {
   REQUEST_TWEET,
   REQUEST_TRACK_TITLE,
   REQUEST_TRACK_ARTIST,
+  ERROR,
 };
 
 enum {
@@ -96,14 +100,15 @@ void in_received_handler(DictionaryIterator *received, void *context) {
  // incoming message received
   text_layer_set_text(text_layer, "Received");
   // Check for fields you expect to receive
+  APP_LOG(APP_LOG_LEVEL_DEBUG, artist);
   Tuple *request_id_tuple = dict_find(received, KEY_REQUEST);
-  
+  // APP_LOG(APP_LOG_LEVEL_DEBUG, artist);
   // Act on the found fields received
   if (request_id_tuple) {
     uint32_t request_id = request_id_tuple->value->uint32;
     switch(request_id)
     {
-      case REQUEST_STATUS:
+      case 0: //Request Status
       { 
         APP_LOG(APP_LOG_LEVEL_DEBUG, "REQUEST_STATUS");
         Tuple *status_tuple = dict_find(received, KEY_STATUS);
@@ -115,6 +120,7 @@ void in_received_handler(DictionaryIterator *received, void *context) {
           layer_set_hidden(text_layer_get_layer(by_layer), true);
           disabled = 1; 
           hide_buttons();
+          layer_set_hidden(bitmap_layer_get_layer(refresh_icon_layer), false);
           hide_track_info();         
         }
         else
@@ -126,24 +132,49 @@ void in_received_handler(DictionaryIterator *received, void *context) {
 
           Tuple *artist_tuple = dict_find(received, KEY_TRACK_ARTIST);
           text_layer_set_text(track_artist_layer, artist_tuple->value->cstring);
-
+          strcpy(artist, artist_tuple->value->cstring);
+          // artist = artist_tuple->value->cstring;
           show_buttons();
           show_track_info();
           disabled = 0;
           // APP_LOG(APP_LOG_LEVEL_DEBUG, "Requesting title");
 //          to_send = REQUEST_TRACK_TITLE;
         }
+        break;
       }
-      break;
       
-      case REQUEST_TWEET:
+      
+      case 2: //Request Tweet
       {
-        // Tuple *message_tuple = dict_find(received, KEY_TWEET);
         APP_LOG(APP_LOG_LEVEL_DEBUG, "REQUEST TWEET");
-        text_layer_set_text(text_layer, "Tweeted!");        
+        APP_LOG(APP_LOG_LEVEL_DEBUG, artist);
+
+        Tuple *message_tuple = dict_find(received, KEY_TWEET);
+        text_layer_set_text(text_layer, message_tuple->value->cstring);
+        text_layer_set_text(track_artist_layer, artist);
+        // text_layer_set_text(track_title_layer, "abra");
+        //text_layer_set_text(text_layer, "Tweeted!");        
         show_buttons();
+        break;
       }
-      break;
+      case 4:
+      {
+        APP_LOG(APP_LOG_LEVEL_DEBUG, "CASE ERROR");
+        Tuple *error_message_tuple = dict_find(received, KEY_ERROR);
+        if (error_message_tuple)
+        {
+
+          text_layer_set_text(text_layer, error_message_tuple->value->cstring);
+            
+        }
+        // APP_LOG(APP_LOG_LEVEL_DEBUG, "Changing artist");
+        // text_layer_set_text(track_artist_layer, "kadabra");
+        // APP_LOG(APP_LOG_LEVEL_DEBUG, "Changing title");        
+        // text_layer_set_text(track_title_layer, "abra");        
+        show_buttons();
+        break;
+      }
+      
     }
     //text_layer_set_text(text_layer, text_tuple->value->uint32);
   }
@@ -246,15 +277,6 @@ static void window_load(Window *window) {
   hide_track_info();
   hide_buttons();
   
-  // refresh_button_layer = text_layer_create((GRect) { .origin = { 0, 120 }, .size = { bounds.size.w - 10, 20 } });
-  // text_layer_set_text(refresh_button_layer, "Refresh");
-  // text_layer_set_text_alignment(refresh_button_layer, GTextAlignmentRight);
-  // text_layer_set_overflow_mode(refresh_button_layer, GTextOverflowModeWordWrap);
-  // layer_add_child(window_layer, text_layer_get_layer(refresh_button_layer));
-
-
-  
-
 
   send_message(1, REQUEST_STATUS);
 
@@ -271,13 +293,13 @@ static void window_unload(Window *window) {
   gbitmap_destroy(tweet_icon_bitmap);
   bitmap_layer_destroy(tweet_icon_layer);
   bitmap_layer_destroy(refresh_icon_layer);
-  // text_layer_destroy(refresh_button_layer);
 }
 
 static void init(void) {
 
 
   disabled = 1;
+  artist = "YOLO";
 
   app_message_register_inbox_received(in_received_handler);
   app_message_register_inbox_dropped(in_dropped_handler);

@@ -39,6 +39,7 @@
 		15A16D35187BF9A6008C0E67 /* Tweeter.pbw in Resources */ = {isa = PBXBuildFile; fileRef = 15A16D34187BF9A6008C0E67 /* Tweeter.pbw */; };
 		15E63FD5187D5A27004848B2 /* iPhone35inch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15E63FD4187D5A27004848B2 /* iPhone35inch.storyboard */; };
 		15E63FD7187D5E2C004848B2 /* background35.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E63FD6187D5E2C004848B2 /* background35.png */; };
+		15E63FDA187FFDE1004848B2 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E63FD9187FFDE1004848B2 /* MBProgressHUD.m */; };
 		15FB1F671871CF26001A90D2 /* ConnectionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FB1F661871CF26001A90D2 /* ConnectionsManager.m */; };
 		15FB1F6D1871F855001A90D2 /* RFKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FB1F6A1871F855001A90D2 /* RFKeyboardToolbar.m */; };
 		15FB1F6E1871F855001A90D2 /* RFToolbarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FB1F6C1871F855001A90D2 /* RFToolbarButton.m */; };
@@ -96,6 +97,8 @@
 		15A16D36187BFBE3008C0E67 /* Tweeter.xyz */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tweeter.xyz; sourceTree = "<group>"; };
 		15E63FD4187D5A27004848B2 /* iPhone35inch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone35inch.storyboard; sourceTree = "<group>"; };
 		15E63FD6187D5E2C004848B2 /* background35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background35.png; sourceTree = "<group>"; };
+		15E63FD8187FFDE1004848B2 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		15E63FD9187FFDE1004848B2 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		15FB1F651871CF26001A90D2 /* ConnectionsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionsManager.h; sourceTree = "<group>"; };
 		15FB1F661871CF26001A90D2 /* ConnectionsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionsManager.m; sourceTree = "<group>"; };
 		15FB1F691871F855001A90D2 /* RFKeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFKeyboardToolbar.h; sourceTree = "<group>"; };
@@ -190,15 +193,16 @@
 				15E63FD4187D5A27004848B2 /* iPhone35inch.storyboard */,
 				154F05DA1858DDD00022BB17 /* LastFMFetcher.h */,
 				154F05DB1858DDD00022BB17 /* LastFMFetcher.m */,
+				15E63FDB187FFDE7004848B2 /* MBProgressHUD */,
 				154F0594185872D30022BB17 /* PMTMainViewController.h */,
 				154F0595185872D30022BB17 /* PMTMainViewController.m */,
+				15FB1F651871CF26001A90D2 /* ConnectionsManager.h */,
+				15FB1F661871CF26001A90D2 /* ConnectionsManager.m */,
+				159997841864CA6C004A5352 /* PebbleConnectionManager.h */,
+				159997851864CA6C004A5352 /* PebbleConnectionManager.m */,
 				15FB1F681871F855001A90D2 /* RFKeyboardToolbar */,
 				154F0571185870CB0022BB17 /* Images.xcassets */,
 				154F0566185870CB0022BB17 /* Supporting Files */,
-				159997841864CA6C004A5352 /* PebbleConnectionManager.h */,
-				159997851864CA6C004A5352 /* PebbleConnectionManager.m */,
-				15FB1F651871CF26001A90D2 /* ConnectionsManager.h */,
-				15FB1F661871CF26001A90D2 /* ConnectionsManager.m */,
 			);
 			path = "Pebble MusicTweeter";
 			sourceTree = "<group>";
@@ -233,6 +237,15 @@
 				154F0581185870CB0022BB17 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		15E63FDB187FFDE7004848B2 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				15E63FD8187FFDE1004848B2 /* MBProgressHUD.h */,
+				15E63FD9187FFDE1004848B2 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		15FB1F681871F855001A90D2 /* RFKeyboardToolbar */ = {
@@ -362,6 +375,7 @@
 				15FB1F6D1871F855001A90D2 /* RFKeyboardToolbar.m in Sources */,
 				154F0570185870CB0022BB17 /* PMTAppDelegate.m in Sources */,
 				15FB1F6E1871F855001A90D2 /* RFToolbarButton.m in Sources */,
+				15E63FDA187FFDE1004848B2 /* MBProgressHUD.m in Sources */,
 				15FB1F671871CF26001A90D2 /* ConnectionsManager.m in Sources */,
 				154F0596185872D30022BB17 /* PMTMainViewController.m in Sources */,
 				154F05DC1858DDD00022BB17 /* LastFMFetcher.m in Sources */,
