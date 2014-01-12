@@ -30,6 +30,5 @@
 - (PBWatch *) connectedWatch;
 - (void) enableTwitter;
 - (void) enableTwitterForUsername:(NSString *)username;
-- (void) test;
 
 @end

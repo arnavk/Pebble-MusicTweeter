@@ -217,9 +217,4 @@
     }
 }
 
-- (IBAction)test:(id)sender {
-    [[ConnectionsManager sharedManager] test];
-}
-
-
 @end

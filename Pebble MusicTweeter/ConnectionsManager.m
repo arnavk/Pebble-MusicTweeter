@@ -366,9 +366,5 @@
                                                options:NULL
                                             completion:accountStoreHandler];
 }
-- (void) test
-{
-    [self postStatus:@"yolo!"];
-}
 
 @end
