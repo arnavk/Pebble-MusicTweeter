@@ -38,6 +38,10 @@
 + (NSURL *)urlForTrack:(NSString *)title byArtist:(NSString *)artist
 {
     NSDictionary *trackInfo = [self infoForTrack:title byArtist:artist];
+    if ([trackInfo[@"results"][@"opensearch:totalResults"] isEqualToString:@"0"]) {
+//        NSLog(@"track matches - %@", trackInfo[@"results"][@"trackmatches"]);
+        return nil;
+    }
     NSURL *url = [NSURL URLWithString:trackInfo[@"results"][@"trackmatches"][@"track"][@"url"]];
     return url;
 }

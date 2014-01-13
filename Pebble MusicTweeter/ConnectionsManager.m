@@ -183,7 +183,10 @@
     NSURL *url = [LastFMFetcher urlForTrack:title byArtist:artist];
     NSString *tweet = self.tweetTemplate;//[NSString stringWithFormat:@"#NowPlaying \"%@\" by %@. #pebbleTweets %@", title, artist, [url absoluteString]];
     tweet = [tweet stringByReplacingOccurrencesOfString:@"<artist>" withString:artist];
-    tweet = [tweet stringByReplacingOccurrencesOfString:@"<link>" withString:[url absoluteString]];
+    if (url)
+        tweet = [tweet stringByReplacingOccurrencesOfString:@"<link>" withString:[url absoluteString]];
+    else
+        tweet = [tweet stringByReplacingOccurrencesOfString:@"<link>" withString:@""];
     tweet = [tweet stringByReplacingOccurrencesOfString:@"<title>" withString:[NSString stringWithFormat:@"\"%@\"", title]];
     tweet = [self stripDoubleSpaceFrom:tweet];
     return tweet;

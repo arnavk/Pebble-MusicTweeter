@@ -54,6 +54,18 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     NSLog(@"View loaded");
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+//    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                                                   [UIColor whiteColor], NSForegroundColorAttributeName,
+//                                                                   nil];
+    
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                [UIFont fontWithName:@"VERDANA" size:18], NSFontAttributeName,
+                                [UIColor whiteColor], NSForegroundColorAttributeName, nil];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:attributes];
+    
     RFToolbarButton *button1 = [[RFToolbarButton alloc] initWithTitle:@"Title" andText:@" <title> "];
     RFToolbarButton *button2 = [[RFToolbarButton alloc] initWithTitle:@"Artist" andText:@" <artist> "];
     RFToolbarButton *button3 = [[RFToolbarButton alloc] initWithTitle:@"Link" andText:@" <link> "];
@@ -197,7 +209,7 @@
 {
     if (username)
     {
-        [self.twitterConnectionButton setTitle:[@"Connected to Twitter as " stringByAppendingString:username] forState:UIControlStateDisabled];
+        [self.twitterConnectionButton setTitle:[@"Connected as " stringByAppendingString:username] forState:UIControlStateDisabled];
         self.twitterConnectionButton.enabled = NO;
         [self.view setNeedsDisplay];
         [MBProgressHUD hideHUDForView:self.view animated:YES];

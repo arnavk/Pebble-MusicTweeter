@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1517AD941874671700EFB2E0 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 1517AD921874671700EFB2E0 /* background.png */; };
 		1517AD951874671700EFB2E0 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1517AD931874671700EFB2E0 /* icon.png */; };
+		151F51B01882E5FD00D9930B /* Tweeter.pbw in Resources */ = {isa = PBXBuildFile; fileRef = 151F51AF1882E5FD00D9930B /* Tweeter.pbw */; };
 		154F0560185870CB0022BB17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154F055F185870CB0022BB17 /* Foundation.framework */; };
 		154F0562185870CB0022BB17 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154F0561185870CB0022BB17 /* CoreGraphics.framework */; };
 		154F0564185870CB0022BB17 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 154F0563185870CB0022BB17 /* UIKit.framework */; };
@@ -36,7 +37,6 @@
 		159997811864C72F004A5352 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159997801864C72F004A5352 /* CFNetwork.framework */; };
 		159997831864C737004A5352 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159997821864C737004A5352 /* MessageUI.framework */; };
 		159997861864CA6C004A5352 /* PebbleConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 159997851864CA6C004A5352 /* PebbleConnectionManager.m */; };
-		15A16D35187BF9A6008C0E67 /* Tweeter.pbw in Resources */ = {isa = PBXBuildFile; fileRef = 15A16D34187BF9A6008C0E67 /* Tweeter.pbw */; };
 		15E63FD5187D5A27004848B2 /* iPhone35inch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15E63FD4187D5A27004848B2 /* iPhone35inch.storyboard */; };
 		15E63FD7187D5E2C004848B2 /* background35.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E63FD6187D5E2C004848B2 /* background35.png */; };
 		15E63FDA187FFDE1004848B2 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E63FD9187FFDE1004848B2 /* MBProgressHUD.m */; };
@@ -58,6 +58,7 @@
 /* Begin PBXFileReference section */
 		1517AD921874671700EFB2E0 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		1517AD931874671700EFB2E0 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		151F51AF1882E5FD00D9930B /* Tweeter.pbw */ = {isa = PBXFileReference; lastKnownFileType = file; name = Tweeter.pbw; path = Tweeter/build/Tweeter.pbw; sourceTree = SOURCE_ROOT; };
 		154F055C185870CB0022BB17 /* Pebble MusicTweeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pebble MusicTweeter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		154F055F185870CB0022BB17 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		154F0561185870CB0022BB17 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -93,8 +94,6 @@
 		159997821864C737004A5352 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		159997841864CA6C004A5352 /* PebbleConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PebbleConnectionManager.h; sourceTree = "<group>"; };
 		159997851864CA6C004A5352 /* PebbleConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PebbleConnectionManager.m; sourceTree = "<group>"; };
-		15A16D34187BF9A6008C0E67 /* Tweeter.pbw */ = {isa = PBXFileReference; lastKnownFileType = file; name = Tweeter.pbw; path = Tweeter/build/Tweeter.pbw; sourceTree = SOURCE_ROOT; };
-		15A16D36187BFBE3008C0E67 /* Tweeter.xyz */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tweeter.xyz; sourceTree = "<group>"; };
 		15E63FD4187D5A27004848B2 /* iPhone35inch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone35inch.storyboard; sourceTree = "<group>"; };
 		15E63FD6187D5E2C004848B2 /* background35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background35.png; sourceTree = "<group>"; };
 		15E63FD8187FFDE1004848B2 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -142,6 +141,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		151F51AD1882E51700D9930B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				154F058E185870F30022BB17 /* iPhone4inch.storyboard */,
+				15E63FD4187D5A27004848B2 /* iPhone35inch.storyboard */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		154F0553185870CB0022BB17 = {
 			isa = PBXGroup;
 			children = (
@@ -189,8 +197,7 @@
 				15FB1F7618728063001A90D2 /* Images */,
 				154F056E185870CB0022BB17 /* PMTAppDelegate.h */,
 				154F056F185870CB0022BB17 /* PMTAppDelegate.m */,
-				154F058E185870F30022BB17 /* iPhone4inch.storyboard */,
-				15E63FD4187D5A27004848B2 /* iPhone35inch.storyboard */,
+				151F51AD1882E51700D9930B /* UI */,
 				154F05DA1858DDD00022BB17 /* LastFMFetcher.h */,
 				154F05DB1858DDD00022BB17 /* LastFMFetcher.m */,
 				15E63FDB187FFDE7004848B2 /* MBProgressHUD */,
@@ -212,9 +219,8 @@
 			children = (
 				154F0567185870CB0022BB17 /* Pebble MusicTweeter-Info.plist */,
 				154F0568185870CB0022BB17 /* InfoPlist.strings */,
+				151F51AF1882E5FD00D9930B /* Tweeter.pbw */,
 				154F056B185870CB0022BB17 /* main.m */,
-				15A16D36187BFBE3008C0E67 /* Tweeter.xyz */,
-				15A16D34187BF9A6008C0E67 /* Tweeter.pbw */,
 				154F056D185870CB0022BB17 /* Pebble MusicTweeter-Prefix.pch */,
 				154F05DD1858DE000022BB17 /* Constants.h */,
 			);
@@ -345,9 +351,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15A16D35187BF9A6008C0E67 /* Tweeter.pbw in Resources */,
 				154F056A185870CB0022BB17 /* InfoPlist.strings in Resources */,
 				1517AD951874671700EFB2E0 /* icon.png in Resources */,
+				151F51B01882E5FD00D9930B /* Tweeter.pbw in Resources */,
 				15E63FD7187D5E2C004848B2 /* background35.png in Resources */,
 				1517AD941874671700EFB2E0 /* background.png in Resources */,
 				154F058F185870F30022BB17 /* iPhone4inch.storyboard in Resources */,
