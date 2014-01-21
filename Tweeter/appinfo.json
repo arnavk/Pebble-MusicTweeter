@@ -1,8 +1,8 @@
 {
   "uuid": "df04464f-aba9-40ad-90e4-88a5968d6964",
-  "shortName": "Tweeter",
-  "longName": "Tweeter",
-  "companyName": "MakeAwesomeHappen",
+  "shortName": "Music Tweeter",
+  "longName": "Music Tweeter",
+  "companyName": "Arnav Kumar",
   "versionCode": 1,
   "versionLabel": "1.0.0",
   "watchapp": {
